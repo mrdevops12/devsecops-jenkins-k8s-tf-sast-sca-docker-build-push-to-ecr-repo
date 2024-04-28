@@ -29,14 +29,13 @@ pipeline {
     }
 
 	stage('Push') {
-            steps {
-                script{
-                    docker.withRegistry('https://911269364388.dkr.ecr.ap-south-1.amazonaws.com', 'aws-credentials') {
-                    app.push("latest")
-                    }
-                }
-            }
-    	}
+           steps {
+              script {
+                sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 911269364388.dkr.ecr.ap-south-1.amazonaws.com"
+                app.push("latest")
+        }
+    }
+}
 	    
   }
 }
