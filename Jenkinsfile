@@ -32,7 +32,7 @@ pipeline {
            steps {
               script {
                 sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 911269364388.dkr.ecr.ap-south-1.amazonaws.com"
-	        sh "docker tag asg:latest 911269364388.dkr.ecr.ap-south-1.amazonaws.com/asg:latest
+	        sh "docker tag asg:latest 911269364388.dkr.ecr.ap-south-1.amazonaws.com/asg:latest"
 		sh "docker push 911269364388.dkr.ecr.ap-south-1.amazonaws.com/asg:latest"
                 app.push("latest")
         }
