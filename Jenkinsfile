@@ -31,8 +31,8 @@ pipeline {
 	stage('Push') {
            steps {
               script {
-                 sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 9.dkr.ecr.ap-south-1.amazonaws.com"
-                 app = docker.build("91.dkr.ecr.ap-south-1.amazonaws.com/asg", '.')
+                 sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 911269364388.dkr.ecr.ap-south-1.amazonaws.com"
+                 app = docker.build("911269364388.dkr.ecr.ap-south-1.amazonaws.com/asg", '.')
                  app.push("latest")
         }
     }
